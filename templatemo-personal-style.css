@@ -120,6 +120,10 @@ https://templatemo.com/tm-593-personal-shape
                 flex-direction: column;
                 gap: 1rem;
             }
+
+              .logo span{
+            display: none;
+        }
         }
 
         :root {
@@ -197,6 +201,10 @@ https://templatemo.com/tm-593-personal-shape
              display: flex;
     align-items: center;
     gap: 10px;
+        }
+
+        .logo span{
+
         }
 
         .logo img {
