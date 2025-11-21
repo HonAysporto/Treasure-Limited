@@ -1274,5 +1274,49 @@ https://templatemo.com/tm-593-personal-shape
 
 
 
+.copy-text {
+    color: #fff;
+    cursor: pointer;
+    /* margin-right: 20px; */
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+}
+
+.copy-text strong {
+    color: #fff;
+}
+
+
+
+
+
+
+/* Tooltip styling */
+.copy-text::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -30px;
+    left: 0;
+    background: #222;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(5px);
+    transition: all 0.25s ease;
+}
+
+/* Show tooltip */
+.copy-text.show-tooltip::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
 
 

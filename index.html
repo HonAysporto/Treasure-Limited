@@ -17,6 +17,19 @@
   };
 </script>
 
+<script>
+function copyText(element, text) {
+    navigator.clipboard.writeText(text).then(() => {
+        element.classList.add("show-tooltip");
+        setTimeout(() => {
+            element.classList.remove("show-tooltip");
+        }, 1000);
+    });
+}
+</script>
+
+
+
 
 
 
@@ -230,26 +243,40 @@ https://templatemo.com/tm-593-personal-shape
 
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <p>&copy; 2025 Treasure Enterprise Limited. All rights reserved.</p>
-                </div>
-                <div class="footer-right">
-                    
-                    
-                    <a href="#terms">Terms of Use</a>
-                    <a href="#privacy">Tel: +27713328709</a>
-                    <a href="#sitemap">Sitemap</a>
-                    
-                </div>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2025 Treasure Enterprise Limited. All rights reserved.</p>
+            </div>
+
+            <div class="footer-right">
+
+                <!-- Email -->
+                <span class="copy-text" data-tooltip="Copied!" onclick="copyText(this, 'maryajadi2018@gmail.com')">
+                    📧 Email: <strong>maryajadi2018@gmail.com</strong>
+                </span>
+
+                  <span class="copy-text" data-tooltip="Copied!" onclick="copyText(this, 'treasureenterprise2025@gmail.com')">
+                 <strong>treasureenterprise2025@gmail.com</strong>
+                </span>
+
+                <!-- Phone -->
+                <span class="copy-text" data-tooltip="Copied!" onclick="copyText(this, '+27623394943')">
+                    📞 Tel: <strong>+27623394943</strong>
+                </span>
+
+                <a href="#sitemap">Sitemap</a>
+
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
+
+
 
     <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/27623394943" class="whatsapp-float" target="_blank">
+<a href="https://wa.me/7039400180" class="whatsapp-float" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
 </a>
 
