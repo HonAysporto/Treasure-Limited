@@ -675,32 +675,70 @@ https://templatemo.com/tm-593-personal-shape
             position: relative;
         }
 
-        .about-image {
-            width: 100%;
-            height: 500px;
-            background: url('images/Enterprise_pics.jpeg') center/cover;
-            border-radius: 30px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-2xl);
-            transform: rotate(-2deg);
-            transition: transform 0.4s ease;
-        }
+.about-image {
+ 
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+    transform: rotate(-2deg);
+    transition: all 0.5s ease;
+
+    /* Professional floating effect */
+    animation: floatImage 4s ease-in-out infinite;
+}
+
+.about-image:hover {
+    transform: rotate(0deg) translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.about-image:hover img {
+    transform: scale(1.03);
+}
+
+/* Floating animation */
+@keyframes floatImage {
+    0% {
+        transform: translateY(0px) ;
+    }
+
+    50% {
+        transform: translateY(-10px) ;
+    }
+
+    100% {
+        transform: translateY(0px) ;
+    }
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 30px;
+
+    transition: transform 0.5s ease;
+}
 
         .about-image:hover {
             transform: rotate(0deg) scale(1.02);
         }
 
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(139, 92, 246, 0.2) 100%);
-            transition: opacity 0.3s ease;
-        }
+     .about-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.15),
+        rgba(255,255,255,0)
+    );
+    z-index: 1;
+    pointer-events: none;
+}
 
         .about-image:hover::before {
             opacity: 0.7;
@@ -753,127 +791,147 @@ https://templatemo.com/tm-593-personal-shape
         }
 
         /* Portfolio Section */
-        .portfolio {
-            background: var(--bg-primary);
-        }
 
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            margin-top: 2rem;
-        }
+.portfolio {
+    background: var(--bg-primary);
+}
 
-        .portfolio-item {
-            background: var(--bg-card);
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(20px);
-            opacity: 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-        }
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 2rem;
+}
 
-        .portfolio-item.animate {
-            transform: translateY(0);
-            opacity: 1;
-        }
+.portfolio-item {
+    background: var(--bg-card);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
 
-        .portfolio-item:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-2xl);
-        }
+    transition: all 0.4s ease;
 
-        .portfolio-image {
-            width: 100%;
-            height: 520px;
-            background: var(--gradient-primary);
-            position: relative;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-        }
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+}
 
-        .portfolio-item:nth-child(1) .portfolio-image {
-            background-image: url('images/Treasure\ Dishwashing\ Soap.jpeg');
-        }
+.portfolio-item:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-2xl);
+}
 
-        .portfolio-item:nth-child(2) .portfolio-image {
-            background-image: url('images/Treasure\ Bleach.jpeg');
-        }
+/* Carousel */
 
-        .portfolio-item:nth-child(3) .portfolio-image {
-            background-image: url('images/Treasure\ Gel.jpeg');
-        }
+.portfolio-image {
+    width: 100%;
+    height: 520px;
+    position: relative;
+    overflow: hidden;
+    background: #f5f5f5;
+}
 
-        .portfolio-item:nth-child(4) .portfolio-image {
-            background-image: url('images/Treasure\ Jik.jpeg');
-        }
+/* Images */
 
-        /* .portfolio-item:nth-child(5) .portfolio-image {
-            background-image: url('images/marketing-strategy-women.jpg');
-        }
+.portfolio-image img {
+    position: absolute;
+    inset: 0;
 
-        .portfolio-item:nth-child(6) .portfolio-image {
-            background-image: url('images/portfolio-website-girl.jpg');
-        } */
+    width: 100%;
+    height: 100%;
 
-        .portfolio-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
-            transition: all 0.3s ease;
-        }
+    object-fit: cover;
 
-        .portfolio-item:hover .portfolio-image::before {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.4) 0%, rgba(139, 92, 246, 0.3) 100%);
-        }
+    opacity: 0;
 
-        .portfolio-content {
-            padding: 2rem;
-        }
+    transition:
+        opacity 1s ease-in-out,
+        transform 0.5s ease;
+}
 
-        .portfolio-content h4 {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
+/* Active Image */
 
-        .portfolio-content p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
+.portfolio-image img.active {
+    opacity: 1;
+}
 
-        .portfolio-tech {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
+/* Hover Zoom */
 
-        .tech-tag {
-            padding: 0.4rem 1rem;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
+.portfolio-item:hover .portfolio-image img.active {
+    transform: scale(1.05);
+}
 
-        .tech-tag:hover {
-            background: var(--primary-color);
-            color: var(--text-light);
-        }
+/* Overlay */
 
+.portfolio-image::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        rgba(0,0,0,0.2),
+        rgba(0,0,0,0.05)
+    );
+
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Content */
+
+.portfolio-content {
+    padding: 2rem;
+}
+
+.portfolio-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.portfolio-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.portfolio-tech {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.tech-tag {
+    padding: 0.4rem 1rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+
+    transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
         /* Contact Section */
         .contact {
             background: linear-gradient(135deg, #3b4cb8 0%, #4a2c65 50%, #9c35a8 100%);
